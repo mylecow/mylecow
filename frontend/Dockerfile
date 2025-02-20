@@ -2,8 +2,8 @@ FROM node:22.13.0 AS build
 WORKDIR /app
 ADD package.json package-lock.json /app
 RUN npm install 
-ADD ./app
+ADD . /app
 RUN npm run build 
 
-FROM nginx:stable-apline-slim
+FROM nginx:stable-alpine-slim
 COPY --from=build /app/dist /usr/share/nginx/html
