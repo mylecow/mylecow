@@ -1,6 +1,6 @@
 FROM node:22.13.0 AS build
 WORKDIR /app
-ADD package.json package-lock.json /app
+ADD package.json /app
 RUN npm install 
 ADD . /app
 RUN npm run build 
