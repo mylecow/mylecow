@@ -1,0 +1,21 @@
+services:
+  db:
+    image: postgres:16.8-alpine3.20
+    environment:
+      POSTGRES_PASSWORD: mylecow
+      POSTGRES_DB: mylecow
+      POSTGRES_USER: mylecow
+    ports:
+      - 5432:5432
+  pgadmin:
+    image: dpage/pgadmin4:9.1.0
+    environment:
+      PGADMIN_DEFAULT_EMAIL: abc@example.com
+      PGADMIN_DEFAULT_PASSWORD: abc
+    ports:
+      - 8880:80
+
+networks:
+  default:
+    name: mylecow
+    external: true
