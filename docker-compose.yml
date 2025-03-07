@@ -10,6 +10,9 @@ services:
     environment:
       PGADMIN_DEFAULT_EMAIL: abc@example.com
       PGADMIN_DEFAULT_PASSWORD: abc
+    configs:
+      - source: servers.json
+        target: /pgadmin4/servers.json
     ports:
       - 8880:80
 
@@ -17,3 +20,30 @@ networks:
   default:
     name: mylecow
     external: true
+
+configs:
+  servers.json:
+    content: |
+      {
+        "Servers": {
+          "1": {
+            "Name": "db",
+            "Group": "Servers",
+            "Host": "db",
+            "Port": 5432,
+            "MaintenanceDB": "postgres",
+            "Username": "mylecow",
+            "UseSSHTunnel": 0,
+            "TunnelPort": "22",
+            "TunnelAuthentication": 0,
+            "KerberosAuthentication": false,
+            "ConnectionParameters": {
+                "sslmode": "prefer",
+                "connect_timeout": 10,
+                "sslcert": "<STORAGE_DIR>/.postgresql/postgresql.crt",
+                "sslkey": "<STORAGE_DIR>/.postgresql/postgresql.key"
+            },
+            "Tags": []
+          }
+        }
+      }
