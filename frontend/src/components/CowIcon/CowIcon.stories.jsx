@@ -5,16 +5,12 @@ export default {
   title: 'Icons/VaquitaIcon',
   component: CowIcon,
   argTypes: {
-    width: {
+    size: {
       control: { type: 'range', min: 50, max: 300, step: 10 },
-      description: 'Ancho del icono en píxeles',
+      description: 'Ancho y alto del icono en píxeles',
       defaultValue: 100
     },
-    height: {
-      control: { type: 'range', min: 50, max: 300, step: 10 },
-      description: 'Alto del icono en píxeles',
-      defaultValue: 100
-    },
+    
     
   },
   parameters: {
@@ -29,8 +25,7 @@ export default {
 
 export const Default = (args) => <CowIcon {...args} />;
 Default.args = {
-  width: 100,
-  height: 100,
+  size: 100,
   fill: 'currentColor'
 };
 

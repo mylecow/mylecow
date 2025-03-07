@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const CowIcon = ({ width = 100, height = 100, ...props }) => (
+const CowIcon = ({ size = 100, fill= 'white', borderRadius= '0.8rem', margin='0.5rem', padding = '0.5rem' }) => (
   <svg
-    width={width}
-    height={height}
+    width={size}
+    height={size}
     viewBox="0 0 174 144"
     fill='none'
     xmlns="http://www.w3.org/2000/svg"
-    {...props}
+    style={{backgroundColor: fill, borderRadius: borderRadius, margin:margin, padding: padding}}
   >
 
     <mask
@@ -1349,8 +1349,11 @@ const CowIcon = ({ width = 100, height = 100, ...props }) => (
 );
 
 CowIcon.propTypes = {
-  width: PropTypes.number,
-  height: PropTypes.number,
+  size: PropTypes.number,
+  fill: PropTypes.string, 
+  borderRadius: PropTypes.string, 
+  margin: PropTypes.string, 
+  padding: PropTypes.string
 };
 
 export default CowIcon;
