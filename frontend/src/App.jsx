@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Outlet } from "react-router";
 import './App.css'
 import { Centered } from './components/layout'
 
@@ -18,8 +19,10 @@ function App() {
       <h1>My Lecow</h1>
       <MyCentered style={{backgroundColor: 'lightblue'}}>
         <h2>Prueba</h2>
+        <Outlet />
         <h2>Rabbit</h2>
       </MyCentered>
+      
     </>
   )
 }
